@@ -7,23 +7,36 @@
 //
 
 #import "ViewController.h"
+#import "JBPManger.h"
+#import "JBPNode.h"
+#import "JBPSong.h"
+#import "JBPSpotifySong.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)loginTestButton:(id)sender {
+    JBPManger* manager = [JBPManger sharedInstance];
+    manager.spotifyManager.delegate = self;
+    [manager setUpServices];
+}
+
+- (IBAction)goToPlaylists:(id)sender {
+    [self performSegueWithIdentifier:@"toPlaylists" sender:self];
+}
+
 
 
 @end

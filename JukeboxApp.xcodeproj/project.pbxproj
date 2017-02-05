@@ -9,12 +9,31 @@
 /* Begin PBXBuildFile section */
 		61E0774A1E44F352006E061D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077491E44F352006E061D /* main.m */; };
 		61E0774D1E44F352006E061D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E0774C1E44F352006E061D /* AppDelegate.m */; };
-		61E077501E44F352006E061D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E0774F1E44F352006E061D /* ViewController.m */; };
 		61E077531E44F352006E061D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E077511E44F352006E061D /* Main.storyboard */; };
 		61E077551E44F352006E061D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61E077541E44F352006E061D /* Assets.xcassets */; };
 		61E077581E44F352006E061D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E077561E44F352006E061D /* LaunchScreen.storyboard */; };
 		61E077631E44F352006E061D /* JukeboxAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077621E44F352006E061D /* JukeboxAppTests.m */; };
 		61E0776E1E44F352006E061D /* JukeboxAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E0776D1E44F352006E061D /* JukeboxAppUITests.m */; };
+		61E0777D1E44F562006E061D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E0777C1E44F561006E061D /* AVFoundation.framework */; };
+		61E0777F1E44F56B006E061D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E0777E1E44F56B006E061D /* SystemConfiguration.framework */; };
+		61E077811E44F6C1006E061D /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E077801E44F6C1006E061D /* SpotifyAudioPlayback.framework */; };
+		61E077831E44F6D9006E061D /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E077821E44F6D9006E061D /* SpotifyAuthentication.framework */; };
+		61E077851E44F6E0006E061D /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E077841E44F6E0006E061D /* SpotifyMetadata.framework */; };
+		61E0778B1E44F7CB006E061D /* JBPManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E0778A1E44F7CB006E061D /* JBPManger.m */; };
+		61E077921E44FB53006E061D /* JBPSpotifyServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077911E44FB53006E061D /* JBPSpotifyServiceManager.m */; };
+		61E077951E452223006E061D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077941E452223006E061D /* ViewController.m */; };
+		61E077981E452B37006E061D /* JBPPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077971E452B37006E061D /* JBPPlaylist.m */; };
+		61E0779F1E454240006E061D /* JBPQueuePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E0779E1E454240006E061D /* JBPQueuePlaylist.m */; };
+		61E077A21E4544C3006E061D /* JBPNormalPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077A11E4544C3006E061D /* JBPNormalPlaylist.m */; };
+		61E077A51E45491A006E061D /* JBPPlaylistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077A41E45491A006E061D /* JBPPlaylistController.m */; };
+		61E077A91E45505A006E061D /* JBPTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077A81E45505A006E061D /* JBPTrie.m */; };
+		61E077AC1E455370006E061D /* JBPNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077AB1E455370006E061D /* JBPNode.m */; };
+		61E077AF1E469098006E061D /* JBPMusicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077AE1E469098006E061D /* JBPMusicStore.m */; };
+		61E077B31E4692CE006E061D /* JBPSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077B21E4692CE006E061D /* JBPSong.m */; };
+		61E077B61E469527006E061D /* JBPSpotifySong.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077B51E469527006E061D /* JBPSpotifySong.m */; };
+		61E077B91E46C76A006E061D /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077B81E46C76A006E061D /* PlaylistViewController.m */; };
+		61E077BC1E46CB47006E061D /* SongsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077BB1E46CB47006E061D /* SongsViewController.m */; };
+		61E077BF1E46D5DC006E061D /* JBPJukeBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077BE1E46D5DC006E061D /* JBPJukeBoxController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +58,6 @@
 		61E077491E44F352006E061D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61E0774B1E44F352006E061D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61E0774C1E44F352006E061D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		61E0774E1E44F352006E061D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		61E0774F1E44F352006E061D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		61E077521E44F352006E061D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61E077541E44F352006E061D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61E077571E44F352006E061D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +68,41 @@
 		61E077691E44F352006E061D /* JukeboxAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JukeboxAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61E0776D1E44F352006E061D /* JukeboxAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JukeboxAppUITests.m; sourceTree = "<group>"; };
 		61E0776F1E44F352006E061D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61E0777C1E44F561006E061D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		61E0777E1E44F56B006E061D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		61E077801E44F6C1006E061D /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		61E077821E44F6D9006E061D /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		61E077841E44F6E0006E061D /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		61E077891E44F7CB006E061D /* JBPManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPManger.h; sourceTree = "<group>"; };
+		61E0778A1E44F7CB006E061D /* JBPManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPManger.m; sourceTree = "<group>"; };
+		61E077901E44FB53006E061D /* JBPSpotifyServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPSpotifyServiceManager.h; sourceTree = "<group>"; };
+		61E077911E44FB53006E061D /* JBPSpotifyServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPSpotifyServiceManager.m; sourceTree = "<group>"; };
+		61E077931E452223006E061D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		61E077941E452223006E061D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		61E077961E452B37006E061D /* JBPPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPPlaylist.h; sourceTree = "<group>"; };
+		61E077971E452B37006E061D /* JBPPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPPlaylist.m; sourceTree = "<group>"; };
+		61E0779D1E454240006E061D /* JBPQueuePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPQueuePlaylist.h; sourceTree = "<group>"; };
+		61E0779E1E454240006E061D /* JBPQueuePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPQueuePlaylist.m; sourceTree = "<group>"; };
+		61E077A01E4544C3006E061D /* JBPNormalPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPNormalPlaylist.h; sourceTree = "<group>"; };
+		61E077A11E4544C3006E061D /* JBPNormalPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPNormalPlaylist.m; sourceTree = "<group>"; };
+		61E077A31E45491A006E061D /* JBPPlaylistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPPlaylistController.h; sourceTree = "<group>"; };
+		61E077A41E45491A006E061D /* JBPPlaylistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPPlaylistController.m; sourceTree = "<group>"; };
+		61E077A71E45505A006E061D /* JBPTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPTrie.h; sourceTree = "<group>"; };
+		61E077A81E45505A006E061D /* JBPTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPTrie.m; sourceTree = "<group>"; };
+		61E077AA1E455370006E061D /* JBPNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPNode.h; sourceTree = "<group>"; };
+		61E077AB1E455370006E061D /* JBPNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPNode.m; sourceTree = "<group>"; };
+		61E077AD1E469098006E061D /* JBPMusicStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPMusicStore.h; sourceTree = "<group>"; };
+		61E077AE1E469098006E061D /* JBPMusicStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPMusicStore.m; sourceTree = "<group>"; };
+		61E077B11E4692CE006E061D /* JBPSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPSong.h; sourceTree = "<group>"; };
+		61E077B21E4692CE006E061D /* JBPSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPSong.m; sourceTree = "<group>"; };
+		61E077B41E469527006E061D /* JBPSpotifySong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPSpotifySong.h; sourceTree = "<group>"; };
+		61E077B51E469527006E061D /* JBPSpotifySong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPSpotifySong.m; sourceTree = "<group>"; };
+		61E077B71E46C76A006E061D /* PlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
+		61E077B81E46C76A006E061D /* PlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
+		61E077BA1E46CB47006E061D /* SongsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsViewController.h; sourceTree = "<group>"; };
+		61E077BB1E46CB47006E061D /* SongsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsViewController.m; sourceTree = "<group>"; };
+		61E077BD1E46D5DC006E061D /* JBPJukeBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPJukeBoxController.h; sourceTree = "<group>"; };
+		61E077BE1E46D5DC006E061D /* JBPJukeBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPJukeBoxController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +110,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61E077851E44F6E0006E061D /* SpotifyMetadata.framework in Frameworks */,
+				61E0777F1E44F56B006E061D /* SystemConfiguration.framework in Frameworks */,
+				61E077831E44F6D9006E061D /* SpotifyAuthentication.framework in Frameworks */,
+				61E0777D1E44F562006E061D /* AVFoundation.framework in Frameworks */,
+				61E077811E44F6C1006E061D /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +142,7 @@
 				61E077611E44F352006E061D /* JukeboxAppTests */,
 				61E0776C1E44F352006E061D /* JukeboxAppUITests */,
 				61E077461E44F352006E061D /* Products */,
+				61E0777B1E44F561006E061D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,12 +161,9 @@
 			children = (
 				61E0774B1E44F352006E061D /* AppDelegate.h */,
 				61E0774C1E44F352006E061D /* AppDelegate.m */,
-				61E0774E1E44F352006E061D /* ViewController.h */,
-				61E0774F1E44F352006E061D /* ViewController.m */,
-				61E077511E44F352006E061D /* Main.storyboard */,
-				61E077541E44F352006E061D /* Assets.xcassets */,
-				61E077561E44F352006E061D /* LaunchScreen.storyboard */,
-				61E077591E44F352006E061D /* Info.plist */,
+				61E077881E44F75D006E061D /* View Controllers */,
+				61E077861E44F728006E061D /* Classes */,
+				61E077871E44F749006E061D /* Storyboards */,
 				61E077481E44F352006E061D /* Supporting Files */,
 			);
 			path = JukeboxApp;
@@ -117,7 +172,9 @@
 		61E077481E44F352006E061D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				61E077541E44F352006E061D /* Assets.xcassets */,
 				61E077491E44F352006E061D /* main.m */,
+				61E077591E44F352006E061D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +195,111 @@
 				61E0776F1E44F352006E061D /* Info.plist */,
 			);
 			path = JukeboxAppUITests;
+			sourceTree = "<group>";
+		};
+		61E0777B1E44F561006E061D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61E077841E44F6E0006E061D /* SpotifyMetadata.framework */,
+				61E077821E44F6D9006E061D /* SpotifyAuthentication.framework */,
+				61E077801E44F6C1006E061D /* SpotifyAudioPlayback.framework */,
+				61E0777E1E44F56B006E061D /* SystemConfiguration.framework */,
+				61E0777C1E44F561006E061D /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61E077861E44F728006E061D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				61E077C01E46D5E3006E061D /* JukeBox Classes */,
+				61E077B01E4692AA006E061D /* Song Classes */,
+				61E077A61E455048006E061D /* Music Store Classes */,
+				61E0778C1E44F88B006E061D /* Manager Classes */,
+				61E077991E452B41006E061D /* Playlist Classes */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		61E077871E44F749006E061D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				61E077511E44F352006E061D /* Main.storyboard */,
+				61E077561E44F352006E061D /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		61E077881E44F75D006E061D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				61E077931E452223006E061D /* ViewController.h */,
+				61E077941E452223006E061D /* ViewController.m */,
+				61E077B71E46C76A006E061D /* PlaylistViewController.h */,
+				61E077B81E46C76A006E061D /* PlaylistViewController.m */,
+				61E077BA1E46CB47006E061D /* SongsViewController.h */,
+				61E077BB1E46CB47006E061D /* SongsViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		61E0778C1E44F88B006E061D /* Manager Classes */ = {
+			isa = PBXGroup;
+			children = (
+				61E077891E44F7CB006E061D /* JBPManger.h */,
+				61E0778A1E44F7CB006E061D /* JBPManger.m */,
+				61E077901E44FB53006E061D /* JBPSpotifyServiceManager.h */,
+				61E077911E44FB53006E061D /* JBPSpotifyServiceManager.m */,
+			);
+			name = "Manager Classes";
+			sourceTree = "<group>";
+		};
+		61E077991E452B41006E061D /* Playlist Classes */ = {
+			isa = PBXGroup;
+			children = (
+				61E077A31E45491A006E061D /* JBPPlaylistController.h */,
+				61E077A41E45491A006E061D /* JBPPlaylistController.m */,
+				61E077961E452B37006E061D /* JBPPlaylist.h */,
+				61E077971E452B37006E061D /* JBPPlaylist.m */,
+				61E0779D1E454240006E061D /* JBPQueuePlaylist.h */,
+				61E0779E1E454240006E061D /* JBPQueuePlaylist.m */,
+				61E077A01E4544C3006E061D /* JBPNormalPlaylist.h */,
+				61E077A11E4544C3006E061D /* JBPNormalPlaylist.m */,
+			);
+			name = "Playlist Classes";
+			sourceTree = "<group>";
+		};
+		61E077A61E455048006E061D /* Music Store Classes */ = {
+			isa = PBXGroup;
+			children = (
+				61E077AA1E455370006E061D /* JBPNode.h */,
+				61E077AB1E455370006E061D /* JBPNode.m */,
+				61E077A71E45505A006E061D /* JBPTrie.h */,
+				61E077A81E45505A006E061D /* JBPTrie.m */,
+				61E077AD1E469098006E061D /* JBPMusicStore.h */,
+				61E077AE1E469098006E061D /* JBPMusicStore.m */,
+			);
+			name = "Music Store Classes";
+			sourceTree = "<group>";
+		};
+		61E077B01E4692AA006E061D /* Song Classes */ = {
+			isa = PBXGroup;
+			children = (
+				61E077B11E4692CE006E061D /* JBPSong.h */,
+				61E077B21E4692CE006E061D /* JBPSong.m */,
+				61E077B41E469527006E061D /* JBPSpotifySong.h */,
+				61E077B51E469527006E061D /* JBPSpotifySong.m */,
+			);
+			name = "Song Classes";
+			sourceTree = "<group>";
+		};
+		61E077C01E46D5E3006E061D /* JukeBox Classes */ = {
+			isa = PBXGroup;
+			children = (
+				61E077BD1E46D5DC006E061D /* JBPJukeBoxController.h */,
+				61E077BE1E46D5DC006E061D /* JBPJukeBoxController.m */,
+			);
+			name = "JukeBox Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +438,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E077501E44F352006E061D /* ViewController.m in Sources */,
+				61E077BF1E46D5DC006E061D /* JBPJukeBoxController.m in Sources */,
+				61E077AF1E469098006E061D /* JBPMusicStore.m in Sources */,
+				61E077981E452B37006E061D /* JBPPlaylist.m in Sources */,
+				61E077A51E45491A006E061D /* JBPPlaylistController.m in Sources */,
+				61E077951E452223006E061D /* ViewController.m in Sources */,
+				61E077B61E469527006E061D /* JBPSpotifySong.m in Sources */,
 				61E0774D1E44F352006E061D /* AppDelegate.m in Sources */,
+				61E077921E44FB53006E061D /* JBPSpotifyServiceManager.m in Sources */,
+				61E077AC1E455370006E061D /* JBPNode.m in Sources */,
+				61E077B91E46C76A006E061D /* PlaylistViewController.m in Sources */,
+				61E077BC1E46CB47006E061D /* SongsViewController.m in Sources */,
+				61E077B31E4692CE006E061D /* JBPSong.m in Sources */,
+				61E0778B1E44F7CB006E061D /* JBPManger.m in Sources */,
+				61E077A91E45505A006E061D /* JBPTrie.m in Sources */,
+				61E077A21E4544C3006E061D /* JBPNormalPlaylist.m in Sources */,
+				61E0779F1E454240006E061D /* JBPQueuePlaylist.m in Sources */,
 				61E0774A1E44F352006E061D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,8 +602,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KW8RLKUW3C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JukeboxApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tkc.JukeboxApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -438,8 +619,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KW8RLKUW3C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JukeboxApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tkc.JukeboxApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -514,6 +700,7 @@
 				61E077741E44F352006E061D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61E077751E44F352006E061D /* Build configuration list for PBXNativeTarget "JukeboxAppTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +709,7 @@
 				61E077771E44F352006E061D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61E077781E44F352006E061D /* Build configuration list for PBXNativeTarget "JukeboxAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +718,7 @@
 				61E0777A1E44F352006E061D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
