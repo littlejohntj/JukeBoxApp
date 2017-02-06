@@ -10,11 +10,13 @@
 #import "JBPNormalPlaylist.h"
 
 /*
- The biggest thing left to do here is deal with persistance, will be a big job
  Also need to figure out the ALL playlist
  */
 
 @implementation JBPPlaylistController
+
+
+// MARK: Initilizers
 
 + (JBPPlaylistController*)sharedInstance
 {
@@ -37,9 +39,9 @@
         
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         NSMutableArray* playlistIdentifiers;
-        self.defaultsPlaylistString = @"allPlaylists";
-        self.immutablePlaylists = [NSMutableArray array];
-        self.mutablePlaylists = [NSMutableArray array];
+        _defaultsPlaylistString = @"allPlaylists";
+        _immutablePlaylists = [NSMutableArray array];
+        _mutablePlaylists = [NSMutableArray array];
         
         NSMutableArray* playlistStrings = [defaults objectForKey:_defaultsPlaylistString];
         NSLog(@"%@", playlistStrings);
@@ -50,12 +52,14 @@
             if (!(playlistIdentifiers == nil)) {
                 [playlist.songIdentifers addObjectsFromArray:playlistIdentifiers];
             }
-            [self.mutablePlaylists addObject:playlist];
+            [_mutablePlaylists addObject:playlist];
         }
     }
     
     return self;
 }
+
+// MARK: Create Playlist Functions
 
 - (void)createNewMutablePlaylistWithName:(NSString*)name
 {
@@ -73,7 +77,7 @@
     
     if (!foundName) {
         JBPNormalPlaylist* newMutablePlaylist = [[JBPNormalPlaylist alloc] initMutablePlaylistWithName:name];
-        [self.mutablePlaylists addObject:newMutablePlaylist];
+        [_mutablePlaylists addObject:newMutablePlaylist];
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         NSArray* playlists = [defaults objectForKey:_defaultsPlaylistString];
         NSMutableArray* newPlaylists = [NSMutableArray arrayWithArray:playlists];
@@ -88,30 +92,34 @@
 {
     JBPNormalPlaylist* newImmutablePlaylist = [[JBPNormalPlaylist alloc] initImmutablePlaylistWithName:name];
     newImmutablePlaylist.songIdentifers = identifiers;
-    [self.immutablePlaylists addObject:newImmutablePlaylist];
+    [_immutablePlaylists addObject:newImmutablePlaylist];
     NSLog(@"Created New Playlist");
 }
 
+// MARK: Playlist Accessers
+
 - (JBPNormalPlaylist*)getMutablePlaylistAtIndex:(NSInteger)index
 {
-    return [self.mutablePlaylists objectAtIndex:index];
+    return [_mutablePlaylists objectAtIndex:index];
 }
 
 - (JBPNormalPlaylist*)getImmutablePlaylistAtIndex:(NSInteger)index
 {
-    return [self.immutablePlaylists objectAtIndex:index];
+    return [_immutablePlaylists objectAtIndex:index];
 }
+
+// MARK: Playlist Deletes
 
 - (void)deletePlaylistAtIndex:(NSUInteger)index
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    JBPPlaylist* playlist = [self.mutablePlaylists objectAtIndex:index];
+    JBPPlaylist* playlist = [_mutablePlaylists objectAtIndex:index];
     NSMutableArray* playlists = [NSMutableArray arrayWithArray:[defaults objectForKey:_defaultsPlaylistString]];
     
     [defaults removeObjectForKey:[playlist getName]];
     [playlists removeObjectAtIndex:index];
     
-    [self.mutablePlaylists removeObjectAtIndex:index];
+    [_mutablePlaylists removeObjectAtIndex:index];
     
     [defaults setObject:playlists forKey:_defaultsPlaylistString];
     [defaults synchronize];

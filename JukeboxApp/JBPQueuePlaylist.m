@@ -30,11 +30,13 @@
 
 - (NSString*)getNextSongIdentifier
 {
+    NSString* nextSongIdenifer;
+    
     if (self.isEmpty) {
         return nil;
     }
     
-    NSString* nextSongIdenifer = [self.songIdentifers objectAtIndex:0];
+    nextSongIdenifer = [self.songIdentifers objectAtIndex:0];
     [self.songIdentifers removeObjectAtIndex:0];
     return nextSongIdenifer;
 }

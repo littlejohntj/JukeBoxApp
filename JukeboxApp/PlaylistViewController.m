@@ -29,10 +29,36 @@
     self.title = @"Playlists";
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// MARK: Actions
+
+- (IBAction)createNewPlaylist:(id)sender {
+    
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Create Playlist"
+                                                                              message: nil
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Playlist Name";
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleNone;
+    }];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray * textfields = alertController.textFields;
+        UITextField * playListTextField = textfields[0];
+        NSString* playListName = playListTextField.text;
+        if (!([playListName length] == 0)) {
+            [_playlistController createNewMutablePlaylistWithName:playListName];
+            [self.tableView reloadData];
+        }
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
+
+// MARK: TableView Functions
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -107,33 +133,6 @@
     
     return @[deleteAction];
     
-}
-
-- (IBAction)createNewPlaylist:(id)sender {
-    
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Create Playlist"
-                                                                              message: nil
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Playlist Name";
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.borderStyle = UITextBorderStyleNone;
-    }];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSArray * textfields = alertController.textFields;
-        UITextField * playListTextField = textfields[0];
-        NSString* playListName = playListTextField.text;
-        if (!([playListName length] == 0)) {
-            [_playlistController createNewMutablePlaylistWithName:playListName];
-            [self.tableView reloadData];
-        }
-    }]];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

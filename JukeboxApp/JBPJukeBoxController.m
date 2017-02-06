@@ -10,6 +10,8 @@
 
 @implementation JBPJukeBoxController
 
+// MARK: Initilizers
+
 + (JBPJukeBoxController*)sharedInstance
 {
     
@@ -34,6 +36,8 @@
     }
     return self;
 }
+
+// MARK: Next Song Logic Functions
 
 - (void)getNextSongAndPlayIt
 {
@@ -81,8 +85,6 @@
     _isCurrentlyPlayingSong = YES;
 }
 
-
-
 - (void)setPlaylistAndPlayRandom
 {
     
@@ -103,8 +105,28 @@
     _currentSong = [_musicStore getSongFromIdentifier:nextSongIdentifer];
     [_currentSong play];
     _isCurrentlyPlayingSong = YES;
-    
 }
+
+// MARK: View Interaction Functions
+
+- (void)playCurrentSong
+{
+    [_currentSong play];
+    _isCurrentlyPlayingSong = YES;
+}
+
+- (void)pauseCurrentSong
+{
+    [_currentSong pause];
+    _isCurrentlyPlayingSong = NO;
+}
+
+- (void)addSongToQueueFromIndex:(NSInteger)index
+{
+    [_queuePlaylist addSongIdentifier:[_currentlyViewedPlaylist getSongIdeniferAtIndex:index]];
+}
+
+// MARK: Helper Functions
 
 - (void)setPlayOrder
 {
@@ -126,10 +148,17 @@
     }
 }
 
+// MARK: Accesser Functions (For other obects that interact with the JukeBox)
+
 - (JBPSong*)getSongFromCurrentlyViewedAtIndex:(NSInteger)index;
 {
     JBPSong* song = [_musicStore getSongFromIdentifier:[_currentlyViewedPlaylist.songIdentifers objectAtIndex:index]];
     return song;
+}
+
+- (NSString*)getSongIdentifierFromCurrentlyViewedAtIndex:(NSInteger)index
+{
+    return [_currentlyViewedPlaylist.songIdentifers objectAtIndex:index];
 }
 
 - (BOOL)getIsCurrentlyPlaying
@@ -140,23 +169,6 @@
 - (BOOL)hasCurrentSong
 {
     return !(_currentSong == nil);
-}
-
-- (void)playCurrentSong
-{
-    [_currentSong play];
-    _isCurrentlyPlayingSong = YES;
-}
-
-- (void)pauseCurrentSong
-{
-    [_currentSong pause];
-    _isCurrentlyPlayingSong = NO;
-}
-
-- (void)addSongToQueueFromIndex:(NSInteger)index
-{
-    [_queuePlaylist addSongIdentifier:[_currentlyViewedPlaylist getSongIdeniferAtIndex:index]];
 }
 
 - (NSString*)getCurentSongName

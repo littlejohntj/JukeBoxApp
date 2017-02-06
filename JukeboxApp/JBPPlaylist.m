@@ -13,24 +13,25 @@
 - (id)initWithName:(NSString*) name {
     self = [super init];
     if (self) {
-        self.name = name;
-        self.songIdentifers = [NSMutableArray array];
+        _name = name;
+        _songIdentifers = [NSMutableArray array];
     }
     return self;
 }
 
 - (NSString*) getName
 {
-    return self.name;
+    return _name;
 }
 
 - (void)addSongIdentifier:(NSString*)newSongIdentifier
 {
-    if (self.canAddSongs && ![self.songIdentifers containsObject:newSongIdentifier]) {
-        [self.songIdentifers addObject:newSongIdentifier];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (_canAddSongs && ![_songIdentifers containsObject:newSongIdentifier]) {
+        [_songIdentifers addObject:newSongIdentifier];
     }
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_songIdentifers forKey:_name];
     [defaults synchronize];
     

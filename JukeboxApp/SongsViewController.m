@@ -24,6 +24,9 @@
 
 @implementation SongsViewController
 
+
+// MARK: View Loads
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,10 +45,37 @@
     self.title = [_jukeBox.currentlyViewedPlaylist getName];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// MARK: Actions
+
+- (IBAction)ShuffleButtonTouched:(id)sender {
+    [_jukeBox setPlaylistAndPlayRandom];
+    [self updatePlayPauseButtonImage];
+    [self updateCurrentSongLabel];
 }
+
+- (IBAction)nextButtonTouched:(id)sender {
+    [_jukeBox getNextSongAndPlayIt];
+    [self updatePlayPauseButtonImage];
+    [self updateCurrentSongLabel];
+}
+
+- (IBAction)playPauseButtonTouched:(id)sender {
+    
+    if ([_jukeBox getIsCurrentlyPlaying]) {
+        [_jukeBox pauseCurrentSong];
+        
+    } else {
+        if ([_jukeBox hasCurrentSong]) {
+            [_jukeBox playCurrentSong];
+        } else {
+            NSLog(@"User tried to play with no song availible.");
+        }
+    }
+    
+    [self updatePlayPauseButtonImage];
+}
+
+// MARK: TableView Functions
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -74,6 +104,8 @@
     
 }
 
+// MARK: Update Label Functions
+
 - (void)updatePlayPauseButtonImage
 {
     if ([_jukeBox getIsCurrentlyPlaying]) {
@@ -92,35 +124,11 @@
     }
 }
 
-- (IBAction)nextButtonTouched:(id)sender {
-    [_jukeBox getNextSongAndPlayIt];
-    [self updatePlayPauseButtonImage];
-    [self updateCurrentSongLabel];
-}
-
-- (IBAction)playPauseButtonTouched:(id)sender {
-    
-    if ([_jukeBox getIsCurrentlyPlaying]) {
-        [_jukeBox pauseCurrentSong];
-        
-    } else {
-        if ([_jukeBox hasCurrentSong]) {
-            [_jukeBox playCurrentSong];
-        } else {
-            NSLog(@"User tried to play with no song availible.");
-        }
-    }
-    
-    [self updatePlayPauseButtonImage];
-    
-}
 
 
-- (IBAction)ShuffleButtonTouched:(id)sender {
-    [_jukeBox setPlaylistAndPlayRandom];
-    [self updatePlayPauseButtonImage];
-    [self updateCurrentSongLabel];
-}
+
+// MARK: Alert Functions
+
 - (void)initiateActionSheetForSongAtIndexPath:(NSIndexPath*)indexPath {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:[_jukeBox getSongFromCurrentlyViewedAtIndex:indexPath.row].name
                                                                    message:nil

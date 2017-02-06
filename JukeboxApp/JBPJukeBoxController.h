@@ -35,6 +35,7 @@
 - (void)pauseCurrentSong;
 - (BOOL)getIsCurrentlyPlaying;
 - (JBPSong*)getSongFromCurrentlyViewedAtIndex:(NSInteger)index;
+- (NSString*)getSongIdentifierFromCurrentlyViewedAtIndex:(NSInteger)index;
 - (BOOL)hasCurrentSong;
 - (void)addSongToQueueFromIndex:(NSInteger)index;
 
