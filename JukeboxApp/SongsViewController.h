@@ -9,5 +9,5 @@
 #import "ViewController.h"
 
 @interface SongsViewController : ViewController
-
+- (void)initiateActionSheetForSongAtIndexPath:(NSIndexPath*) indexPath;
 @end

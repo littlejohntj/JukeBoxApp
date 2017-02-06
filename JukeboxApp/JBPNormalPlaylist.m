@@ -35,7 +35,7 @@
 
 - (NSString*)getSongIdeniferAtIndex:(NSInteger)index
 {
-    return self.songIdentifers[index];
+    return [self.songIdentifers objectAtIndex:index];
 }
 
 @end

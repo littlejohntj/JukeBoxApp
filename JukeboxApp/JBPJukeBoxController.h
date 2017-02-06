@@ -15,14 +15,27 @@
 @interface JBPJukeBoxController : NSObject
 
 @property (nonatomic, strong) JBPSong* currentSong;
-@property (nonatomic) NSUInteger currentSongIndex;
-@property (nonatomic, strong) NSArray* currentOrder;
+@property (nonatomic) NSInteger currentSongIndex;
+@property (nonatomic, strong) NSMutableArray* currentOrder;
 @property (nonatomic, strong) JBPQueuePlaylist* queuePlaylist;
 @property (nonatomic, strong) JBPNormalPlaylist* currentPlaylist;
-@property (nonatomic, strong) JBPPlaylist* currentlyViewedPlaylist;
+@property (nonatomic, strong) JBPNormalPlaylist* currentlyViewedPlaylist;
 @property (nonatomic, strong) JBPMusicStore* musicStore;
+@property (nonatomic) BOOL isCurrentlyPlayingSong;
 
++ (JBPJukeBoxController*)sharedInstance;
 - (id)init;
-- (void)getNextSongAndPlay;
+- (void)getNextSongAndPlayIt;
+- (void)setPlaylistAndPlayRandom;
+- (void)setPlaylistAndPlayAtIndex:(NSInteger)index;
+- (NSString*)getCurentSongName;
+- (NSString*)getCurrentSongAlbum;
+- (NSString*)getCurrentSongArtist;
+- (void)playCurrentSong;
+- (void)pauseCurrentSong;
+- (BOOL)getIsCurrentlyPlaying;
+- (JBPSong*)getSongFromCurrentlyViewedAtIndex:(NSInteger)index;
+- (BOOL)hasCurrentSong;
+- (void)addSongToQueueFromIndex:(NSInteger)index;
 
 @end

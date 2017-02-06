@@ -26,9 +26,14 @@
 
 - (void)addSongIdentifier:(NSString*)newSongIdentifier
 {
-    if (self.canAddSongs) {
+    if (self.canAddSongs && ![self.songIdentifers containsObject:newSongIdentifier]) {
         [self.songIdentifers addObject:newSongIdentifier];
     }
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:_songIdentifers forKey:_name];
+    [defaults synchronize];
+    
 }
 
 @end

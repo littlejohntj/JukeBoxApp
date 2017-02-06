@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NSMutableArray* songIdentifers;
 @property (nonatomic) BOOL canAddSongs;
 
-
 - (id)initWithName:(NSString*) name;
 - (NSString *) getName;
 - (void)addSongIdentifier:(NSString*)newSongIdentifier;

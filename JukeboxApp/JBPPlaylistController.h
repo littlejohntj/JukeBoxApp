@@ -13,16 +13,14 @@
 
 @property (strong, nonatomic) NSMutableArray* mutablePlaylists;
 @property (strong, nonatomic) NSMutableArray* immutablePlaylists;
+@property (strong, nonatomic) NSString* defaultsPlaylistString;
 
 + (JBPPlaylistController*)sharedInstance;
-
 - (id)init;
-
-- (JBPNormalPlaylist*)getNewMutablePlaylistWithName:(NSString*) name;
 - (void)createNewImmutablePlaylistWithName:(NSString*)name andIdentifiers:(NSMutableArray*)identifiers;
-
 - (void)deletePlaylistAtIndex:(NSUInteger)index;
 - (JBPNormalPlaylist*)getImmutablePlaylistAtIndex:(NSInteger)index;
 - (JBPNormalPlaylist*)getMutablePlaylistAtIndex:(NSInteger)index;
+- (void)createNewMutablePlaylistWithName:(NSString*)name;
 
 @end

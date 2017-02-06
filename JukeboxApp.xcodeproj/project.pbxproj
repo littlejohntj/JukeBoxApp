@@ -34,6 +34,7 @@
 		61E077B91E46C76A006E061D /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077B81E46C76A006E061D /* PlaylistViewController.m */; };
 		61E077BC1E46CB47006E061D /* SongsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077BB1E46CB47006E061D /* SongsViewController.m */; };
 		61E077BF1E46D5DC006E061D /* JBPJukeBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077BE1E46D5DC006E061D /* JBPJukeBoxController.m */; };
+		61E077C31E47C183006E061D /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E077C21E47C183006E061D /* SongTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		61E077BB1E46CB47006E061D /* SongsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsViewController.m; sourceTree = "<group>"; };
 		61E077BD1E46D5DC006E061D /* JBPJukeBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBPJukeBoxController.h; sourceTree = "<group>"; };
 		61E077BE1E46D5DC006E061D /* JBPJukeBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBPJukeBoxController.m; sourceTree = "<group>"; };
+		61E077C11E47C183006E061D /* SongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTableViewCell.h; sourceTree = "<group>"; };
+		61E077C21E47C183006E061D /* SongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 				61E0774B1E44F352006E061D /* AppDelegate.h */,
 				61E0774C1E44F352006E061D /* AppDelegate.m */,
 				61E077881E44F75D006E061D /* View Controllers */,
+				61E077C41E47C18B006E061D /* Custom Views */,
 				61E077861E44F728006E061D /* Classes */,
 				61E077871E44F749006E061D /* Storyboards */,
 				61E077481E44F352006E061D /* Supporting Files */,
@@ -302,6 +306,15 @@
 			name = "JukeBox Classes";
 			sourceTree = "<group>";
 		};
+		61E077C41E47C18B006E061D /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				61E077C11E47C183006E061D /* SongTableViewCell.h */,
+				61E077C21E47C183006E061D /* SongTableViewCell.m */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +453,7 @@
 			files = (
 				61E077BF1E46D5DC006E061D /* JBPJukeBoxController.m in Sources */,
 				61E077AF1E469098006E061D /* JBPMusicStore.m in Sources */,
+				61E077C31E47C183006E061D /* SongTableViewCell.m in Sources */,
 				61E077981E452B37006E061D /* JBPPlaylist.m in Sources */,
 				61E077A51E45491A006E061D /* JBPPlaylistController.m in Sources */,
 				61E077951E452223006E061D /* ViewController.m in Sources */,

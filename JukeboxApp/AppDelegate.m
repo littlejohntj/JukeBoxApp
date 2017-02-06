@@ -17,7 +17,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    NSString* defaultsPlaylistString = @"allPlaylists";
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* playlists = [defaults objectForKey:defaultsPlaylistString];
+    
+    if (playlists == nil) {
+        [defaults setObject:[NSMutableArray array] forKey:defaultsPlaylistString];
+        [defaults synchronize];
+    }
+    
     return YES;
 }
 

@@ -45,4 +45,24 @@
     NSLog(@"this might run");
 }
 
+- (void)pause
+{
+    NSLog(@"this shouldnt run");
+}
+
+- (NSString*)getName
+{
+    return self.name;
+}
+
+- (NSString*)getArtistName
+{
+    return self.artistName;
+}
+
+- (NSString*)getAlbumName
+{
+    return self.albumnName;
+}
+
 @end

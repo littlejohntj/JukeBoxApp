@@ -23,5 +23,10 @@
 - (void)addAlbum:(NSString*)album;
 - (void)stopPlayingSong;
 - (void)play;
+- (void)pause;
+- (NSString*)getName;
+- (NSString*)getArtistName;
+- (NSString*)getAlbumName;
+
 
 @end

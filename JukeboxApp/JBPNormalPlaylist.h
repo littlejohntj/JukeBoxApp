@@ -16,6 +16,4 @@
 - (NSInteger)getSize;
 - (NSString*)getSongIdeniferAtIndex:(NSInteger)index;
 
-
-
 @end
