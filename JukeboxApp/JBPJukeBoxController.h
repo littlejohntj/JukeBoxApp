@@ -38,5 +38,6 @@
 - (NSString*)getSongIdentifierFromCurrentlyViewedAtIndex:(NSInteger)index;
 - (BOOL)hasCurrentSong;
 - (void)addSongToQueueFromIndex:(NSInteger)index;
+- (NSString*)getCurrentSongIdentifier;
 
 @end

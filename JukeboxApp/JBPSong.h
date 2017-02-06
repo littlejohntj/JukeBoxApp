@@ -27,6 +27,6 @@
 - (NSString*)getName;
 - (NSString*)getArtistName;
 - (NSString*)getAlbumName;
-
+- (NSString*)getIdentifier;
 
 @end

@@ -17,6 +17,7 @@
 @end
 
 @interface SongTableViewCell : UITableViewCell
+
 @property (weak, nonatomic, null_unspecified) IBOutlet UILabel* songNameLabel;
 @property (weak, nonatomic, null_unspecified) IBOutlet UILabel* artistNameLabel;
 @property (weak, nonatomic, null_unspecified) IBOutlet UIButton* optionsButton;

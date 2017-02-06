@@ -50,6 +50,11 @@
     NSLog(@"this shouldnt run");
 }
 
+- (NSString*)getIdentifier
+{
+    return self.identifier;
+}
+
 - (NSString*)getName
 {
     return self.name;

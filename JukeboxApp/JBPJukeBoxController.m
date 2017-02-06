@@ -161,6 +161,11 @@
     return [_currentlyViewedPlaylist.songIdentifers objectAtIndex:index];
 }
 
+- (NSString*)getCurrentSongIdentifier
+{
+    return [_currentSong getIdentifier];
+}
+
 - (BOOL)getIsCurrentlyPlaying
 {
     return _isCurrentlyPlayingSong;

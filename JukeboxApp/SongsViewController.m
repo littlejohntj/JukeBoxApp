@@ -24,16 +24,16 @@
 
 @implementation SongsViewController
 
-
 // MARK: View Loads
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     _jukeBox = [JBPJukeBoxController sharedInstance];
+    
     [self updatePlayPauseButtonImage];
     [self updateCurrentSongLabel];
     [self.songNameAndArtistLabel setTextColor:[UIColor whiteColor]];
+    
     [_tableView reloadData];
 }
 
@@ -41,8 +41,10 @@
 {
     [self updatePlayPauseButtonImage];
     [self updateCurrentSongLabel];
-    [_tableView reloadData];
+    
     self.title = [_jukeBox.currentlyViewedPlaylist getName];
+    
+    [_tableView reloadData];
 }
 
 // MARK: Actions
@@ -51,12 +53,14 @@
     [_jukeBox setPlaylistAndPlayRandom];
     [self updatePlayPauseButtonImage];
     [self updateCurrentSongLabel];
+    [_tableView reloadData];
 }
 
 - (IBAction)nextButtonTouched:(id)sender {
     [_jukeBox getNextSongAndPlayIt];
     [self updatePlayPauseButtonImage];
     [self updateCurrentSongLabel];
+    [_tableView reloadData];
 }
 
 - (IBAction)playPauseButtonTouched:(id)sender {
@@ -87,21 +91,28 @@
     static NSString *cellIdentifier = @"songCell";
     SongTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     JBPSong* song = [_jukeBox getSongFromCurrentlyViewedAtIndex:indexPath.row];
+    
     cell.songNameLabel.text = [song getName];
     cell.artistNameLabel.text = [song getArtistName];
     cell.delegate = self;
     cell.indexPath = indexPath;
+    
+    if ([_jukeBox hasCurrentSong] && [[_jukeBox getCurrentSongIdentifier] isEqualToString:[song getIdentifier]]) {
+        cell.backgroundColor = [UIColor blueColor];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"WTF");
     [_jukeBox setPlaylistAndPlayAtIndex:indexPath.row];
     [self updateCurrentSongLabel];
     [self updatePlayPauseButtonImage];
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [_tableView reloadData];
 }
 
 // MARK: Update Label Functions
@@ -123,9 +134,6 @@
         self.songNameAndArtistLabel.text = @"";
     }
 }
-
-
-
 
 // MARK: Alert Functions
 
@@ -166,13 +174,13 @@
     
     NSMutableArray* mutablePlaylists = [JBPPlaylistController sharedInstance].mutablePlaylists;
     
-    NSLog(@"%lu", (unsigned long)[mutablePlaylists count]);
-    
     for (JBPPlaylist* playlist in mutablePlaylists) {
         
-        UIAlertAction* tmpAction = [UIAlertAction actionWithTitle:[playlist getName] style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        UIAlertAction* tmpAction = [UIAlertAction actionWithTitle:[playlist getName]
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+            
             [playlist addSongIdentifier:[_jukeBox getSongFromCurrentlyViewedAtIndex:indexPath.row].identifier];
-            NSLog(@"%lu", (unsigned long)[playlist.songIdentifers count]);
         }];
         
         [alert addAction:tmpAction];
