@@ -28,7 +28,6 @@
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming;
 
 - (void)setUpSpotifyPlaylist;
-- (void)listPageToArrayOfTracks:(SPTListPage*)lp;
 - (void)turnTracksToSongsAndPopulate:(NSMutableArray*)tracks;
 
 @end

@@ -12,14 +12,15 @@
 @protocol SongTableViewCellDelegate <NSObject>
 
 @required
-- (void)initiateActionSheetForSongAtIndexPath:(NSIndexPath*) indexPath;
+- (void)initiateActionSheetForSongAtIndexPath:( NSIndexPath* _Nonnull ) indexPath;
+
 @end
 
 @interface SongTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *optionsButton;
+@property (weak, nonatomic, null_unspecified) IBOutlet UILabel* songNameLabel;
+@property (weak, nonatomic, null_unspecified) IBOutlet UILabel* artistNameLabel;
+@property (weak, nonatomic, null_unspecified) IBOutlet UIButton* optionsButton;
 @property (strong, nonnull) NSIndexPath* indexPath;
-@property (weak, nonatomic)  SongsViewController* delegate;
+@property (weak, nonatomic, null_unspecified) SongsViewController* delegate;
 
 @end

@@ -39,9 +39,9 @@
         
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         NSMutableArray* playlistIdentifiers;
-        _defaultsPlaylistString = @"allPlaylists";
-        _immutablePlaylists = [NSMutableArray array];
-        _mutablePlaylists = [NSMutableArray array];
+        self.defaultsPlaylistString = @"allPlaylists";
+        self.immutablePlaylists = [NSMutableArray array];
+        self.mutablePlaylists = [NSMutableArray array];
         
         NSMutableArray* playlistStrings = [defaults objectForKey:_defaultsPlaylistString];
         NSLog(@"%@", playlistStrings);

@@ -15,7 +15,13 @@
 #import "JBPPlaylistController.h"
 #import "JBPSpotifySong.h"
 
+@interface JBPSpotifyServiceManager () <SPTAudioStreamingDelegate>
+    
+@end
+
 @implementation JBPSpotifyServiceManager
+
+// MARK: Initilizers
 
 + (JBPSpotifyServiceManager*)sharedInstance
 {
@@ -28,21 +34,6 @@
     });
     
     return _sharedInstance;
-}
-
-- (void)dismissAuthViewWithURLIfNeeded:(NSURL *) url
-{
-    if ([self.auth canHandleURL:url]) {
-        
-        [self.authViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-        self.authViewController = nil;
-        
-        [self.auth handleAuthCallbackWithTriggeredAuthURL:url callback:^(NSError *error, SPTSession *session) {
-            if (session) {
-                [self.player loginWithAccessToken:self.auth.session.accessToken];
-            }
-        }];
-    }
 }
 
 - (id)init
@@ -84,11 +75,32 @@
 
 }
 
+// MARK: Authentication Functions
+
+- (void)dismissAuthViewWithURLIfNeeded:(NSURL *) url
+{
+    if ([self.auth canHandleURL:url]) {
+        
+        [self.authViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        self.authViewController = nil;
+        
+        [self.auth handleAuthCallbackWithTriggeredAuthURL:url callback:^(NSError *error, SPTSession *session) {
+            if (session) {
+                [self.player loginWithAccessToken:self.auth.session.accessToken];
+            }
+        }];
+    }
+}
+
+// MARK: Delegate Functions
+
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming
 {
     NSLog(@"Spotify user login was valid.");
     [self setUpSpotifyPlaylist];
 }
+
+// MARK: Track Information Downloader Functions
 
 - (void)setUpSpotifyPlaylist
 {
@@ -101,24 +113,6 @@
              [self listPageToArrayOfTracks:listPage];
          }
      }];
-}
-
-- (void)turnTracksToSongsAndPopulate:(NSMutableArray*)tracks
-{
-    NSMutableArray* spotifySongArray = [NSMutableArray array];
-    NSMutableArray* spotifySongIdentifierArray = [NSMutableArray array];
-    
-    for (SPTPartialTrack* track in tracks) {
-        JBPSpotifySong* newSong = [[JBPSpotifySong alloc] initWithName:track.name andIdentifier:[NSString stringWithFormat:@"%@", track.uri]];
-        [newSong addAlbum:track.album.name];
-        SPTPartialArtist * artist = track.artists.firstObject;
-        [newSong addArtist:artist.name];
-        [spotifySongArray addObject:newSong];
-        [spotifySongIdentifierArray addObject:newSong.identifier];
-    }
-    
-    [[JBPMusicStore sharedInstance] addSongsToMusicStore:spotifySongArray];
-    [[JBPPlaylistController sharedInstance] createNewImmutablePlaylistWithName:@"Spotify Music" andIdentifiers:spotifySongIdentifierArray];
 }
 
 - (void)listPageToArrayOfTracks:(SPTListPage*)listpage
@@ -158,6 +152,24 @@
         [self turnTracksToSongsAndPopulate:array];
     }
     
+}
+
+- (void)turnTracksToSongsAndPopulate:(NSMutableArray*)tracks
+{
+    NSMutableArray* spotifySongArray = [NSMutableArray array];
+    NSMutableArray* spotifySongIdentifierArray = [NSMutableArray array];
+    
+    for (SPTPartialTrack* track in tracks) {
+        JBPSpotifySong* newSong = [[JBPSpotifySong alloc] initWithName:track.name andIdentifier:[NSString stringWithFormat:@"%@", track.uri]];
+        [newSong addAlbum:track.album.name];
+        SPTPartialArtist * artist = track.artists.firstObject;
+        [newSong addArtist:artist.name];
+        [spotifySongArray addObject:newSong];
+        [spotifySongIdentifierArray addObject:newSong.identifier];
+    }
+    
+    [[JBPMusicStore sharedInstance] addSongsToMusicStore:spotifySongArray];
+    [[JBPPlaylistController sharedInstance] createNewImmutablePlaylistWithName:@"Spotify Music" andIdentifiers:spotifySongIdentifierArray];
 }
 
 @end
