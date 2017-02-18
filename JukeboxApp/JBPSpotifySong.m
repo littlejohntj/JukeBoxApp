@@ -35,7 +35,14 @@ I will handle errors and successes of playing after I implement the jukebox
                  return;
              } else {
                  NSLog(@"was able to continue playing");
+                 if (![self timer]) {
+                     NSLog(@"should start timer");
+                     [self startTimer];
+                 } else {
+                     NSLog(@"didnt recreate timer");
+                 }
                  // NEED TO SEND MESSAGE TO THE JUKEBOX THAT WE HAVE CONTINUED PLAYING
+                 
              }
          }];
         
@@ -51,6 +58,12 @@ I will handle errors and successes of playing after I implement the jukebox
                 return;
             } else {
                 // NEED TO SEND MESSAGE TO THE JUKEBOX THAT WE HAVE STARTED PLAYING
+                if (![self timer]) {
+                    NSLog(@"should start timer");
+                    [self startTimer];
+                } else {
+                    NSLog(@"didnt recreate timer");
+                }
             }
             
         }];
@@ -67,9 +80,9 @@ I will handle errors and successes of playing after I implement the jukebox
              if (error != nil) {
                  // NEED TO HANDLE IF THIS HAPPENS ASAP SO I DONT FORGET
                  NSLog(@"failed to pause playing: %@", error);
-                 return;
              } else {
                  NSLog(@"was able to pause playing");
+                 [self stopTimer];
                  // NEED TO SEND MESSAGE TO THE JUKEBOX THAT WE HAVE PAUSED
              }
          }];

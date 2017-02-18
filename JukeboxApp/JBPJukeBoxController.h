@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JBPSong.h"
 #import "JBPQueuePlaylist.h"
 #import "JBPNormalPlaylist.h"
 #import "JBPMusicStore.h"
+#import "JBPSong.h"
 
-@interface JBPJukeBoxController : NSObject
+@interface JBPJukeBoxController : NSObject <JBPSongDelegate>
 
 @property (nonatomic, strong) JBPSong* currentSong;
 @property (nonatomic) NSInteger currentSongIndex;
@@ -39,5 +39,6 @@
 - (BOOL)hasCurrentSong;
 - (void)addSongToQueueFromIndex:(NSInteger)index;
 - (NSString*)getCurrentSongIdentifier;
+- (void) songDidFinishPlaying;
 
 @end

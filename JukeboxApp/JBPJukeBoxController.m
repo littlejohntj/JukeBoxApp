@@ -8,6 +8,11 @@
 
 #import "JBPJukeBoxController.h"
 
+@interface JBPJukeBoxController () 
+
+@end
+
+
 @implementation JBPJukeBoxController
 
 // MARK: Initilizers
@@ -42,6 +47,7 @@
 - (void)getNextSongAndPlayIt
 {
     if (_currentSong) {
+        _currentSong.delegate = nil;
         [_currentSong stopPlayingSong];
         _isCurrentlyPlayingSong = NO;
     }
@@ -64,6 +70,7 @@
     }
     
     if (_currentSong) {
+        _currentSong.delegate = self;
         [_currentSong play];
         _isCurrentlyPlayingSong = YES;
     }
@@ -72,6 +79,7 @@
 - (void)setPlaylistAndPlayAtIndex:(NSInteger)index
 {
     if (_currentSong) {
+        _currentSong.delegate = nil;
         [_currentSong stopPlayingSong];
         _isCurrentlyPlayingSong = NO;
     }
@@ -82,6 +90,7 @@
     NSString* nextSongIdentifer = [_currentPlaylist getSongIdeniferAtIndex:[[_currentOrder objectAtIndex:_currentSongIndex] intValue]];
     _currentSong = [_musicStore getSongFromIdentifier:nextSongIdentifer];
     [_currentSong play];
+    _currentSong.delegate = self;
     _isCurrentlyPlayingSong = YES;
 }
 
@@ -93,6 +102,7 @@
     }
     
     if (_currentSong) {
+        _currentSong.delegate = nil;
         [_currentSong stopPlayingSong];
         _isCurrentlyPlayingSong = NO;
     }
@@ -104,6 +114,7 @@
     NSString* nextSongIdentifer = [_currentPlaylist getSongIdeniferAtIndex:[[_currentOrder objectAtIndex:_currentSongIndex] intValue]];
     _currentSong = [_musicStore getSongFromIdentifier:nextSongIdentifer];
     [_currentSong play];
+    _currentSong.delegate = self;
     _isCurrentlyPlayingSong = YES;
 }
 
@@ -190,5 +201,32 @@
 {
     return [_currentSong getArtistName];
 }
+
+// MARK: Song Delegate Fuctions
+
+- (void)songDidFinishPlaying
+{
+    [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [self getNextSongAndPlayIt];
+    }];
+}
+
+- (void)songTimeUpdated:(double)newTime
+{
+    
+}
+
+- (void)songPlayed
+{
+    NSLog(@"Jukebox reconizes that the song has started to play.");
+}
+
+- (void)songPaused
+{
+    NSLog(@"Jukebox reconizes that the song has paused.");
+}
+
+
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "JBPSpotifyServiceManager.h"
+#import "JBPSpotifyServiceManager.h"
 
 @interface JBPManger : NSObject
 

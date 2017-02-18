@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class JBPJukeBoxController;
+
+@protocol JBPSongDelegate <NSObject>
+
+@required
+- (void)songDidFinishPlaying;
+- (void)songTimeUpdated:(double)newTime;
+- (void)songPaused;
+- (void)songPlayed;
+
+@end
+
 @interface JBPSong : NSObject
 
 @property (nonatomic, strong) NSString* name;
@@ -17,6 +29,10 @@
 @property (nonatomic) BOOL isBeingPlayed;
 @property (nonatomic) BOOL hasArtist;
 @property (nonatomic) BOOL hasAlbum;
+@property (nonatomic, strong) NSNumber* duration;
+@property (nonatomic, strong) NSTimer* timer;
+@property (nonatomic) double currentTimePlayed;
+@property (nonatomic, strong) JBPJukeBoxController* delegate;
 
 - (id)initWithName:(NSString*)name andIdentifier:(NSString*)identifier;
 - (void)addArtist:(NSString*)artist;
@@ -28,5 +44,9 @@
 - (NSString*)getArtistName;
 - (NSString*)getAlbumName;
 - (NSString*)getIdentifier;
+- (void)addSongDuration:(double)seconds;
+- (void)incrementTimePlayed:(NSTimer*)timer;
+- (void)startTimer;
+- (void)stopTimer;
 
 @end

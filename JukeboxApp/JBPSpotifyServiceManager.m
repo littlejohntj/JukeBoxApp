@@ -162,6 +162,7 @@
     for (SPTPartialTrack* track in tracks) {
         JBPSpotifySong* newSong = [[JBPSpotifySong alloc] initWithName:track.name andIdentifier:[NSString stringWithFormat:@"%@", track.uri]];
         [newSong addAlbum:track.album.name];
+        [newSong addSongDuration:track.duration];
         SPTPartialArtist * artist = track.artists.firstObject;
         [newSong addArtist:artist.name];
         [spotifySongArray addObject:newSong];

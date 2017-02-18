@@ -357,7 +357,6 @@ typedef NS_ENUM(NSUInteger, SPTRepeatMode) {
  */
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeRepeatStatus:(SPTRepeatMode)repeateMode;
 
-
 /** Called when metadata for current, previous, or next track is changed.
  *
  * This event occurs when playback starts or changes to a different context,
